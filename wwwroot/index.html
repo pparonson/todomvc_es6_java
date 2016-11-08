@@ -29,24 +29,48 @@
     <div class="container">
       <!-- Placeholder body -->
       <!-- <iframe src="../views/displayTodos.html"></iframe> -->
-      <button type="button"
-        name="button"
-        class="btn btn-default"
-        id="displayTodosButton">
-        Display
-      </button>
-      <button type="button"
-        name="button"
-        class="btn btn-default"
-        id="toggleAllButton">
-        Toggle All
-      </button>
+      <div class="button">
+        <button type="button"
+          name="button"
+          class="btn btn-default pull-right"
+          id="toggleAllButton">
+          Toggle All
+        </button>
+      </div>
+
+      <div class="button">
+        <button type="button" class="btn btn-default"
+          id="toggleCompletedButton">
+          Toggle
+        </button>
+        <input type="number" placeholder="position"
+          id="toggleCompletedPositionInput">
+      </div>
+
       <div class="button">
         <button type="button" class="btn btn-default" id="addTodoButton">
           Add
         </button>
         <input type="text" placeholder="todoText"id="addTodoTextInput">
       </div>
+
+      <div class="button">
+        <button type="button" class="btn btn-default" id="editTodoButton">
+          Edit
+        </button>
+        <input type="number" placeholder="position" id="editTodoPositionInput">
+        <input type="text" placeholder="todoText" id="editTodoTextInput">
+      </div>
+
+      <div class="button">
+        <button type="button" class="btn btn-default" id="deleteTodoButton">
+          Delete
+        </button>
+        <input type="number" placeholder="position"
+          id="deleteTodoPositionInput">
+      </div>
+      <!-- dynamically create todoLi elements in js -->
+      <ul></ul>
 
 
       <footer>
