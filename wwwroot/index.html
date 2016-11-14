@@ -29,52 +29,46 @@
     <div class="container">
       <!-- Placeholder body -->
       <!-- <iframe src="../views/displayTodos.html"></iframe> -->
-      <div class="button">
-        <button type="button"
-          name="button"
-          class="btn btn-default pull-right"
-          id="toggleAllButton">
-          Toggle All
-        </button>
-      </div>
 
-      <div class="button">
-        <button type="button" class="btn btn-default"
-          id="toggleCompletedButton">
-          Toggle
-        </button>
-        <input type="number" placeholder="position"
-          id="toggleCompletedPositionInput">
+      <div class="row">
+        <span>
+          <button type="button"
+            name="button"
+            class="btn btn-primary pull-right"
+            id="toggleAllButton">
+            Toggle All
+          </button>
+        </span>
       </div>
+      <div class="row">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-success" id="addTodoButton">
+              Add
+            </button>
+          </span>
+          <input type="text" placeholder="Enter text here.."
+            class="form-control" id="addTodoTextInput">
+        </div>
+      </div>
+      <!-- <div class="row">
+        <form class="form-group">
+          <span class="form-group-btn">
+            <button type="submit" class="btn btn-success" id="addTodoButton">
+              Add
+            </button>
+          </span>
+          <input type="text" placeholder="Enter text here.."
+            class="form-control" id="addTodoTextInput">
+        </form>
+      </div> -->
 
-      <div class="button">
-        <button type="button" class="btn btn-default" id="addTodoButton">
-          Add
-        </button>
-        <input type="text" placeholder="todoText"id="addTodoTextInput">
-      </div>
 
-      <div class="button">
-        <button type="button" class="btn btn-default" id="editTodoButton">
-          Edit
-        </button>
-        <input type="number" placeholder="position" id="editTodoPositionInput">
-        <input type="text" placeholder="todoText" id="editTodoTextInput">
-      </div>
-
-      <div class="button">
-        <button type="button" class="btn btn-default" id="deleteTodoButton">
-          Delete
-        </button>
-        <input type="number" placeholder="position"
-          id="deleteTodoPositionInput">
-      </div>
       <!-- dynamically create todoLi elements in js -->
-      <ul></ul>
-
+      <ul class="list-unstyled"></ul>
 
       <footer>
-        <p>Copyright &copy; 2016 - TodoMVC ES6 and Java</p>
+        <p class="col-md-offset-1 col-md-4">Copyright &copy; 2016 - TodoMVC ES6 and Java</p>
       </footer>
     </div> <!-- end: container -->
     <script src="./lib/jquery/dist/jquery.js"></script>
