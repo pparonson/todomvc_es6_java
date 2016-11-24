@@ -7,71 +7,101 @@
     <link rel="stylesheet"
       href="lib/normalize-css/normalize.css"
       media="screen">
-    <!-- <link rel="stylesheet"
-      href="./lib/reset-css/reset.css"
-      media="screen"> -->
     <link rel="stylesheet"
       href="./lib/bootstrap/dist/css/bootstrap.css"
       media="screen">
     <link rel="stylesheet"
+      href="./lib/components-font-awesome/css/font-awesome.min.css"
+      media="screen">
+    <link rel="stylesheet"
       href="./css/master.css"
       media="screen">
-
+    <link rel="stylesheet"
+      href="./css/navmenu.css"
+      media="screen">
   </head>
   <body>
-    <div class="navbar navbar-default">
-      <div class="container">
-        <a href="#" class="navbar-brand">
-          <span>TodoMVC with ES6 and Java</span>
-        </a>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="navbar navbar-default">
+              <a href="#" class="navbar-brand">
+                <span>TodoMVC with ES6 and Java</span>
+              </a>
+          </div>
+        </div>
       </div>
-    </div>
+    </div> <!-- end: class="container" -->
+
     <div class="container">
       <!-- Placeholder body -->
       <!-- <iframe src="../views/displayTodos.html"></iframe> -->
-
       <div class="row">
-        <span>
-          <button type="button"
-            name="button"
-            class="btn btn-primary pull-right"
-            id="toggleAllButton">
-            Toggle All
-          </button>
-        </span>
-      </div>
-      <div class="row">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-success" id="addTodoButton">
-              Add
+        <div class="col-md-12">
+          <span>
+            <button type="button"
+              name="button"
+              class="btn btn-primary pull-right"
+              id="toggleAllButton">
+              Toggle All
             </button>
           </span>
-          <input type="text" placeholder="Enter text here.."
-            class="form-control" id="addTodoTextInput">
+
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-success" id="addTodoButton">
+                Add
+              </button>
+            </span>
+            <input type="text" placeholder="Enter text here.."
+              class="form-control" id="addTodoTextInput">
+          </div>
         </div>
       </div>
-      <!-- <div class="row">
-        <form class="form-group">
-          <span class="form-group-btn">
-            <button type="submit" class="btn btn-success" id="addTodoButton">
-              Add
-            </button>
-          </span>
-          <input type="text" placeholder="Enter text here.."
-            class="form-control" id="addTodoTextInput">
-        </form>
-      </div> -->
+    </div> <!-- end: class="container" -->
+
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <form class="form-group form-inline">
+            <span class="form-group-btn">
+              <button type="submit" class="btn btn-success" id="addTodoButton">
+                Add
+              </button>
+            </span>
+            <input type="text" placeholder="Enter text here.."
+              class="form-control" id="addTodoTextInput">
+          </form>
+        </div>
+      </div>
+    </div>  -->
+
 
 
       <!-- dynamically create todoLi elements in js -->
-      <ul class="list-unstyled"></ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-unstyled"></ul>
+        </div>
+      </div>
+    </div>
 
-      <footer>
-        <p class="col-md-offset-1 col-md-4">Copyright &copy; 2016 - TodoMVC ES6 and Java</p>
-      </footer>
-    </div> <!-- end: container -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <footer>
+            <p class="col-md-offset-1 col-md-4">
+              &copy; 2016 - TodoMVC ES6 and Java
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+
     <script src="./lib/jquery/dist/jquery.js"></script>
+    <script src="./lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="./js/app.js"></script>
   </body>
 </html>

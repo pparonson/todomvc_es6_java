@@ -93,6 +93,8 @@ const views = {
             // divInputGroup.addClass('input-group');
 
             const todoLi = $('<li></li>');
+            const todoLiLabel = $('<label></label>');
+            const todoLiInput = $('<input type="text" class="form-control">');
             todoLi.addClass('input-group');
 
 
@@ -104,37 +106,38 @@ const views = {
             } else {
                 todoTextWithCompletion = `( ) ${ todo.todoText }`;
             }
-            $(todosUl).append(todoLi.text(todoTextWithCompletion));
-            // $(todosUl).append(todoLi);
-
+            // $(todosUl).append(todoLi.text(todoTextWithCompletion));
+            $(todosUl).append(todoLi);
+            $(todoLi).append(todoLiLabel);
+            $(todoLiLabel).append(todoLiInput);
+            $(todoLiInput).val(todoTextWithCompletion);
             $(todoLi).prepend(this.createEditTodoTextInput());
             $(todoLi).prepend(this.createToggleCompletedButton());
-            $(todoLi).append(this.createEditTodoButton());
             $(todoLi).append(this.createDeleteTodoButton());
+            $(todoLi).append(this.createEditTodoButton());
+
         });
     },
     createToggleCompletedButton() {
         const toggleCompletedButton = $('<button></button>');
-        toggleCompletedButton.addClass(
-            "toggleCompletedButton btn btn-info input-group-button")
-            .text('Toggle');
-
-        // const toggleCompletedSpan = $('<span></span>');
-        // toggleCompletedSpan.hasClass('input-group-button');
-        // const toggleCompletedButton = $('<button></button>');
-        // toggleCompletedButton.addClass("toggleCompletedButton btn btn-info")
-        //     .text('Toggle');
-        //
-        // const toggleCompleted = $(toggleCompletedSpan)
-        //     .append(toggleCompletedButton);
+        // const toggleCompletedButtonLabel = $('<label></label>');
+        const fontAwesomeIcon =
+            $('<i class="fa fa-square-o" aria-hidden="true"></i>');
+        toggleCompletedButton
+            .addClass('toggleCompletedButton btn btn-info input-group-button');
+        // toggleCompletedButton.append(toggleCompletedButtonLabel);
+        toggleCompletedButton.append(fontAwesomeIcon);
         return toggleCompletedButton;
-        // return toggleCompleted;
     },
     createDeleteTodoButton() {
         const deleteTodoButton = $('<button></button>');
-        deleteTodoButton.addClass(
-            "deleteTodoButton btn btn-danger")
-            .text('Delete');
+        // const deleteTodoButtonLabel = $('<label></label>');
+        const fontAwesomeIcon =
+            ('<i class="fa fa-ban" aria-hidden="true"></i>');
+
+        deleteTodoButton.addClass("deleteTodoButton btn");
+        // deleteTodoButton.append(deleteTodoButtonLabel);
+        deleteTodoButton.append(fontAwesomeIcon);
         return deleteTodoButton;
     },
     createEditTodoButton() {
@@ -178,3 +181,7 @@ const views = {
         });
     }
 }; // end: views
+const el = $('button.deleteTodoButton');
+const indexFromElement = (el) => {
+
+};
