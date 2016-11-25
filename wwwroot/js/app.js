@@ -92,51 +92,56 @@ const views = {
             // const divInputGroup = $('<div></div>');
             // divInputGroup.addClass('input-group');
 
-            const todoLi = $('<li></li>');
-            const todoLiLabel = $('<label></label>');
-            const todoLiInput = $('<input type="text" class="form-control">');
-            todoLi.addClass('input-group');
-
+            const todoLi = $('<li class="input-group"></li>');
+            const todoLiInputDiv = $('<div></div>');
+            const spanToggleCompletedButton =
+                $('<span class="input-group-btn"></span>');
+            const spanDeleteTodoButton =
+                $('<span class="input-group-btn"></span>');
+            const todoLiInput =
+                $('<input type="text" class="todoTextInput form-control">');
 
             const { todoText, completed } = todo;
             $(todoLi).attr('id', todoList.todos.indexOf(todo));
             let todoTextWithCompletion = '';
-            if (todo.completed) {
-                todoTextWithCompletion = `(X) ${ todo.todoText }`;
-            } else {
-                todoTextWithCompletion = `( ) ${ todo.todoText }`;
-            }
-            // $(todosUl).append(todoLi.text(todoTextWithCompletion));
-            $(todosUl).append(todoLi);
-            $(todoLi).append(todoLiLabel);
-            $(todoLiLabel).append(todoLiInput);
-            $(todoLiInput).val(todoTextWithCompletion);
-            $(todoLi).prepend(this.createEditTodoTextInput());
-            $(todoLi).prepend(this.createToggleCompletedButton());
-            $(todoLi).append(this.createDeleteTodoButton());
-            $(todoLi).append(this.createEditTodoButton());
 
+            if (todo.completed) {
+                todoTextWithCompletion = todoLiInput
+                    .val(todo.todoText)
+                    .css('text-decoration', 'line-through');
+                // logic to add checkmark to toggleCompleted === true button
+
+            } else {
+                todoTextWithCompletion = todoLiInput
+                    .val(todo.todoText);
+            }
+
+            todosUl.append(todoLi.append(todoLiInputDiv
+                .append(todoTextWithCompletion)));
+
+
+
+            // todoLi.prepend(this.createEditTodoTextInput());
+            todoLi.prepend(spanToggleCompletedButton
+                .append(this.createToggleCompletedButton()));
+            todoLi.append(spanDeleteTodoButton.append(this.createDeleteTodoButton()));
         });
     },
     createToggleCompletedButton() {
         const toggleCompletedButton = $('<button></button>');
-        // const toggleCompletedButtonLabel = $('<label></label>');
         const fontAwesomeIcon =
             $('<i class="fa fa-square-o" aria-hidden="true"></i>');
         toggleCompletedButton
-            .addClass('toggleCompletedButton btn btn-info input-group-button');
-        // toggleCompletedButton.append(toggleCompletedButtonLabel);
+            .addClass('toggleCompletedButton btn');
         toggleCompletedButton.append(fontAwesomeIcon);
         return toggleCompletedButton;
     },
     createDeleteTodoButton() {
         const deleteTodoButton = $('<button></button>');
-        // const deleteTodoButtonLabel = $('<label></label>');
         const fontAwesomeIcon =
-            ('<i class="fa fa-ban" aria-hidden="true"></i>');
+            ('<i class="fa fa-trash-o" aria-hidden="true"></i>');
 
         deleteTodoButton.addClass("deleteTodoButton btn");
-        // deleteTodoButton.append(deleteTodoButtonLabel);
         deleteTodoButton.append(fontAwesomeIcon);
         return deleteTodoButton;
     },
@@ -146,11 +151,11 @@ const views = {
             "editTodoButton btn btn-warning").text('Edit');
         return editTodoButton;
     },
-    createEditTodoTextInput() {
-        const editTodoTextInput = $('<input type="text">');
-        editTodoTextInput.addClass("editTodoTextInput form-control");
-        return editTodoTextInput;
-    },
+    // createEditTodoTextInput() {
+    //     const editTodoTextInput = $('<input type="text">');
+    //     editTodoTextInput.addClass("editTodoTextInput form-control");
+    //     return editTodoTextInput;
+    // },
     setUpEventListeners() {
         const todoUl = $('ul');
         todoUl.click(event => {
@@ -159,8 +164,8 @@ const views = {
             const { target: { parentNode: parentNode} } = event;
             const { target: {parentNode: {id: id } } } = event;
 
-            if ($(target).hasClass('toggleCompletedButton')) {
-                console.log(target);
+            if ( $(target).hasClass('toggleCompletedButton') ) {
+                console.log('target: ', target);
                 this.toggleCompleted(parseInt(id));
             } else if ($(target).hasClass('deleteTodoButton')) {
                 console.log(id);
@@ -181,6 +186,8 @@ const views = {
         });
     }
 }; // end: views
+
+// scratch
 const el = $('button.deleteTodoButton');
 const indexFromElement = (el) => {
 

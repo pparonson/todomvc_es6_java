@@ -38,23 +38,23 @@
       <!-- <iframe src="../views/displayTodos.html"></iframe> -->
       <div class="row">
         <div class="col-md-12">
-          <span>
-            <button type="button"
-              name="button"
-              class="btn btn-primary pull-right"
-              id="toggleAllButton">
-              Toggle All
-            </button>
-          </span>
-
           <div class="input-group">
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-success" id="addTodoButton">
-                Add
+              <button type="submit" class="btn"
+                id="addTodoButton">
+                <i class="fa fa-plus" aria-hidden="true"></i>
               </button>
             </span>
             <input type="text" placeholder="Enter text here.."
-              class="form-control" id="addTodoTextInput">
+              class="todoTextInput form-control" id="addTodoTextInput">
+              <span class="input-group-btn">
+                <button type="button"
+                  name="button"
+                  class="btn"
+                  id="toggleAllButton">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+              </span>
           </div>
         </div>
       </div>
